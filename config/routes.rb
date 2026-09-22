@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   root "homes#top"
   get "home/about", to: "homes#about", as: :about
 
+  get "users/sign_up", to: "registrations#new", as: :new_user
+
  resource :user_registration,
          only: %i[new create],
          controller: "registrations",
