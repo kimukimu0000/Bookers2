@@ -63,6 +63,6 @@ group :test do
     gem "factory_bot_rails"
     gem 'faker'
 
-  gem "json", "< 3"
+  gem "json", "< 4"
 end
   gem 'net-smtp'
