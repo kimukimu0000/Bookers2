@@ -10,7 +10,17 @@ Rails.application.routes.draw do
          path: "users",
          path_names: { new: "sign_up" }
 
-resources :users, except: %i[new create]
+         resources :users, except: %i[new create] do
+    resource :relationships, only: [:create, :destroy]
+
+    get "followings",
+      to: "relationships#followings",
+      as: :followings
+
+    get "followers",
+      to: "relationships#followers",
+      as: :followers
+end
 
 resources :books do
   resource :favorite, only: [:create, :destroy]

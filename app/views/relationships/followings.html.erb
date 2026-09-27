@@ -1,0 +1,9 @@
+<div class="container">
+  <h2>Followings</h2>
+
+  <% if @users.any? %>
+    <%= render "users", users: @users %>
+  <% else %>
+    <p>フォローしているユーザーはいません</p>
+  <% end %>
+</div>
