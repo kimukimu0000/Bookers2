@@ -1,4 +1,5 @@
-    <% if @book.errors.any? %>
+<th>Comments</th> 
+ <% if @book.errors.any? %>
   <ul class="text-danger">
     <% @book.errors.full_messages.each do |message| %>
       <li><%= message %></li>
@@ -44,10 +45,12 @@
               <td>
                 <%= book.body %>
               </td>
-              
+
               <td>
   <%= render "favorite", book: book %>
               </td>
+              
+              <td>Comments: <%= book.book_comments.count %></td>
             </tr>
           <% end %>
         </tbody>

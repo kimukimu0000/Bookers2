@@ -14,6 +14,7 @@ resources :users, except: %i[new create]
 
 resources :books do
   resource :favorite, only: [:create, :destroy]
+  resources :book_comments, only: [:create, :destroy]
 end
 
   resource :session

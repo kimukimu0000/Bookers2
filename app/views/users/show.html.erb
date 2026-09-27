@@ -10,6 +10,7 @@
             <th></th>
             <th>Title</th>
             <th>Opinion</th>
+            <th>Comments</th>
           </tr>
         </thead>
         <tbody>
@@ -28,7 +29,11 @@
 
               <td><%= link_to book.title, book_path(book) %></td>
               <td><%= book.body %></td>
-            </tr>
+
+<td>
+  Comments: <%= book.book_comments.count %>
+</td>
+</tr>
           <% end %>
         </tbody>
       </table>
