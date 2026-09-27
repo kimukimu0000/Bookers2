@@ -9,4 +9,5 @@ validates :name, presence: true, length: { in: 2..20 }, uniqueness: true
 validates :introduction, length: { maximum: 50 }
 
   normalizes :email_address, with: ->(e) { e.strip.downcase }
+  has_many :favorites, dependent: :destroy
 end

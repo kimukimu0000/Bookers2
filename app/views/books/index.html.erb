@@ -20,6 +20,7 @@
             <th></th>
             <th>Title</th>
             <th>Opinion</th>
+            <th>Favorite</th>
           </tr>
         </thead>
 
@@ -42,6 +43,10 @@
 
               <td>
                 <%= book.body %>
+              </td>
+              
+              <td>
+  <%= render "favorite", book: book %>
               </td>
             </tr>
           <% end %>

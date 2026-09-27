@@ -29,6 +29,9 @@
             </td>
 
             <td><%= @book.body %></td>
+<td>
+  <%= render "favorite", book: @book %>
+</td> 
 
             <% if @book.user == Current.user %>
               <td>

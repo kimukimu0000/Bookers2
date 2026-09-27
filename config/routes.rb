@@ -12,7 +12,9 @@ Rails.application.routes.draw do
 
 resources :users, except: %i[new create]
 
-  resources :books
+resources :books do
+  resource :favorite, only: [:create, :destroy]
+end
 
   resource :session
   resources :passwords, param: :token
