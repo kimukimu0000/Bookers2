@@ -41,4 +41,21 @@ end
 def following?(user)
   followings.include?(user)
 end
+
+def self.looks(search, word)
+  word = word.to_s
+
+  case search
+  when "perfect_match"
+    where(name: word)
+  when "forward_match"
+    where("name LIKE ?", "#{word}%")
+  when "backward_match"
+    where("name LIKE ?", "%#{word}")
+  when "partial_match"
+    where("name LIKE ?", "%#{word}%")
+  else
+    all
+    end
+  end
 end

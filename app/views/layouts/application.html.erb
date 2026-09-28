@@ -94,6 +94,9 @@
   </nav>
 </header>
 
+<% if authenticated? %>
+  <%= render "searches/form" %>
+<% end %>
 
 <div class="container mt-3">
   <% flash.each do |type, message| %>

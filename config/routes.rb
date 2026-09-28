@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   root "homes#top"
   get "home/about", to: "homes#about", as: :about
-
+  get "search", to: "searches#search", as: :search
   get "users/sign_up", to: "registrations#new", as: :new_user
 
  resource :user_registration,
