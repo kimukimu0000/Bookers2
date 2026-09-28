@@ -51,28 +51,12 @@
         </tbody>
       </table>
 
-      <p>Comments: <%= @book.book_comments.count %></p>
+<%= render "book_comments/comments", book: @book %>
 
-<% @book.book_comments.each do |book_comment| %>
-  <div>
-    <%= link_to book_comment.user.name, user_path(book_comment.user) %>
-    <%= book_comment.comment %>
-
-    <% if book_comment.user == Current.user %>
-      <%= link_to "Destroy",
-                  book_book_comment_path(@book, book_comment),
-                  data: {
-                    turbo_method: :delete,
-                    turbo_confirm: "Are you sure?"
-                  } %>
-    <% end %>
-  </div>
-<% end %>
-
-<%= form_with model: [@book, @book_comment] do |f| %>
-  <%= f.text_area :comment %>
-  <%= f.submit "Send" %>
-<% end %>
+<%= render "book_comments/form",
+           book: @book,
+           book_comment: @book_comment %>
+    
     </div>
   </div>
 </div>
