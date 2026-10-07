@@ -1,0 +1,10 @@
+<div class="container mt-3">
+  <h2>送信が完了しました</h2>
+
+  <h3><%= @title %></h3>
+  <%= simple_format(@body) %>
+
+  <%= link_to "グループ詳細へ戻る",
+              group_path(@group),
+              class: "btn btn-secondary mt-3" %>
+</div>

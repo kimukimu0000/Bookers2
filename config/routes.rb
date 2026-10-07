@@ -3,7 +3,11 @@ Rails.application.routes.draw do
   get "home/about", to: "homes#about", as: :about
   get "search", to: "searches#search", as: :search
   get "users/sign_up", to: "registrations#new", as: :new_user
-
+ 
+  resources :groups, only: [:index, :new, :create, :show, :edit, :update] do
+  resource :group_user, only: [:create, :destroy]
+   resource :event, only: [:new, :create], controller: "group_events"
+end
  resource :user_registration,
          only: %i[new create],
          controller: "registrations",

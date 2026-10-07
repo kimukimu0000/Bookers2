@@ -1,0 +1,25 @@
+<div class="container mt-3">
+  <h2>イベント通知</h2>
+  <p>送信先：<%= @group.name %>のメンバー</p>
+
+<%= form_with url: group_event_path(@group),
+              scope: :event,
+              data: { turbo: false } do |f| %>
+    <div class="mb-3">
+      <%= f.label :title, "タイトル" %>
+      <%= f.text_field :title,
+                       class: "form-control",
+                       required: true %>
+    </div>
+
+    <div class="mb-3">
+      <%= f.label :body, "本文" %>
+      <%= f.text_area :body,
+                      class: "form-control",
+                      rows: 5,
+                      required: true %>
+    </div>
+
+    <%= f.submit "送信", class: "btn btn-success" %>
+  <% end %>
+</div>

@@ -1,0 +1,35 @@
+<div class="container mt-3">
+  <h2>グループ詳細</h2>
+
+  <h3><%= @group.name %></h3>
+  <p><%= @group.introduction %></p>
+  <p>オーナー：<%= @group.owner.name %></p>
+<% if @group.owner_id == Current.user.id %>
+  <%= link_to "Notice an Event",
+              new_group_event_path(@group),
+              class: "btn btn-primary mb-3" %>
+<% end %>
+
+
+  <% if @group.owner_id != Current.user.id %>
+    <% if @group.group_users.exists?(user_id: Current.user.id) %>
+      <%= button_to "Leave this group",
+                    group_group_user_path(@group),
+                    method: :delete,
+                    class: "btn btn-danger" %>
+    <% else %>
+      <%= button_to "Join this group",
+                    group_group_user_path(@group),
+                    method: :post,
+                    class: "btn btn-success" %>
+    <% end %>
+  <% end %>
+
+  <h3 class="mt-4">メンバー：<%= @group.users.count %>人</h3>
+
+  <ul>
+    <% @group.users.each do |user| %>
+      <li><%= link_to user.name, user_path(user) %></li>
+    <% end %>
+  </ul>
+</div>
